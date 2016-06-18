@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>HTPD &mdash; proj.4 4.9.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/paper/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '4.9.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="proj.4 4.9.2 documentation" href="index.html" />
+    <link rel="next" title="Threads" href="threads.html" />
+    <link rel="prev" title="License" href="license.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          proj.4</a>
+        <span class="navbar-text navbar-version pull-left"><b>4.9.2</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="download.html">Download</a></li>
+                <li><a href="https://github.com/OSGeo/proj.4">GitHub</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Docs <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="download.html#current-release">Current Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#past-releases">Past Releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download.html#binaries">Binaries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#where-can-i-find-the-list-of-projections-and-their-arguments">Where can I find the list of projections and their arguments?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-build-configure-proj-4-to-support-datum-shifting">How do I build/configure PROJ.4 to support datum shifting?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-debug-problems-with-nad27-nad83-datum-shifting">How do I debug problems with NAD27/NAD83 datum shifting?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-use-epsg-coordinate-system-codes-with-proj-4">How do I use EPSG coordinate system codes with PROJ.4?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-use-3-parameter-and-7-parameter-datum-shifting">How do I use 3 parameter and 7 parameter datum shifting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#does-proj-4-work-in-different-international-numeric-locales">Does PROJ.4 work in different international numeric locales?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#changing-ellipsoid-why-can-t-i-convert-from-wgs84-to-google-earth-virtual-globe-mercator">Changing Ellipsoid / Why can&#8217;t I convert from WGS84 to Google Earth / Virtual Globe Mercator?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-do-i-get-different-results-with-4-5-0-and-4-6-0">Why do I get different results with 4.5.0 and 4.6.0?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-calculate-distances-directions-on-the-surface-of-the-earth">How do I calculate distances/directions on the surface of the earth?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-the-healpix-projection-and-how-can-i-use-it">What is the HEALPix projection and how can I use it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-the-rhealpix-projection-and-how-can-i-use-it">What is the rHEALPix projection and how can I use it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-options-does-proj-4-allow-for-the-shape-of-the-earth-geodesy">What options does proj.4 allow for the shape of the Earth (geodesy)?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#what-if-i-want-a-spherical-earth">What if I want a spherical Earth?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-change-the-radius-of-the-earth-how-do-i-use-proj-4-for-work-on-mars">How do I change the radius of the Earth?  How do I use proj.4 for work on Mars?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-do-false-eastings-and-false-northings">How do I do False Eastings and False Northings?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="geodesic.html">Geodesic Calculations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geodesic.html#id1">Geodesic Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geodesic.html#terminology">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geodesic.html#the-math">The Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geodesic.html#the-history">The History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grids.html">Grids</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="grids.html#us-canadian-french-and-new-zealand">US, Canadian, French and New Zealand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grids.html#switzerland">Switzerland</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grids.html#harn">HARN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grids.html#htdp">HTDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grids.html#non-free-grids">Non-Free Grids</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">HTPD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-and-building-htdp">Getting and building HTDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-crs2crs2grid-py">Getting crs2crs2grid.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Threads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="threads.html#key-thread-safety-issues">Key Thread Safety Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="threads.html#projctx">projCtx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="threads.html#src-multistresstest-c">src/multistresstest.c</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#parameter-list">Parameter list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#units">Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#vertical-units">Vertical Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#false-easting-northing">False Easting/Northing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#lon-wrap-over-longitude-wrapping">lon_wrap, over - Longitude Wrapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#pm-prime-meridian">pm - Prime Meridian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#towgs84-datum-transformation-to-wgs84">towgs84 - Datum transformation to WGS84</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#nadgrids-grid-based-datum-adjustments">nadgrids - Grid Based Datum Adjustments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameters.html#axis-orientation">Axis orientation</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Here <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">HTPD</a><ul>
+<li><a class="reference internal" href="#getting-and-building-htdp">Getting and building HTDP</a></li>
+<li><a class="reference internal" href="#getting-crs2crs2grid-py">Getting crs2crs2grid.py</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="license.html" title="Previous Chapter: License"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; License</span>
+    </a>
+  </li>
+  <li>
+    <a href="threads.html" title="Next Chapter: Threads"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Threads &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="htpd">
+<span id="id1"></span><h1>HTPD<a class="headerlink" href="#htpd" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#htpd" id="id2">HTPD</a><ul>
+<li><a class="reference internal" href="#getting-and-building-htdp" id="id3">Getting and building HTDP</a></li>
+<li><a class="reference internal" href="#getting-crs2crs2grid-py" id="id4">Getting crs2crs2grid.py</a></li>
+<li><a class="reference internal" href="#usage" id="id5">Usage</a></li>
+<li><a class="reference internal" href="#see-also" id="id6">See Also</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>This page documents use of the <cite>crs2crs2grid.py</cite> script and the HTDP
+(Horizontal Time Dependent Positioning) grid shift modelling program from
+NGS/NOAA to produce PROJ.4 compatible grid shift files for fine grade
+conversions between various NAD83 epochs and WGS84.  Traditionally PROJ.4 has
+treated NAD83 and WGS84 as equivalent and failed to distinguish between
+different epochs or realizations of those datums.  At the scales of much
+mapping this is adequate but as interest grows in high resolution imagery and
+other high resolution mapping this is inadequate.  Also, as the North American
+crust drifts over time the displacement between NAD83 and WGS84 grows (more
+than one foot over the last two decades).</p>
+<div class="section" id="getting-and-building-htdp">
+<h2>Getting and building HTDP<a class="headerlink" href="#getting-and-building-htdp" title="Permalink to this headline">¶</a></h2>
+<p>The HTDP modelling program is in written FORTRAN.  The source and documentation
+can be found on the HTDP page at <a class="reference external" href="http://www.ngs.noaa.gov/TOOLS/Htdp/Htdp.shtml">http://www.ngs.noaa.gov/TOOLS/Htdp/Htdp.shtml</a></p>
+<p>On linux systems it will be necessary to install <cite>gfortran</cite> or some FORTRAN
+compiler.  For ubuntu something like the following should work.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gfortran</span>
+</pre></div>
+</div>
+<p>To compile the program do something like the following to produce the binary &#8220;htdp&#8221; from the source code.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gfortran</span> <span class="n">htdp</span><span class="o">.</span><span class="k">for</span> <span class="o">-</span><span class="n">o</span> <span class="n">htdp</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-crs2crs2grid-py">
+<h2>Getting crs2crs2grid.py<a class="headerlink" href="#getting-crs2crs2grid-py" title="Permalink to this headline">¶</a></h2>
+<p>The <cite>crs2crs2grid.py</cite> script can be found at
+<a class="reference external" href="https://github.com/OSGeo/gdal/tree/trunk/gdal/swig/python/samples/crs2crs2grid.py">https://github.com/OSGeo/gdal/tree/trunk/gdal/swig/python/samples/crs2crs2grid.py</a></p>
+<p>It depends on having the GDAL Python bindings operational.  If they are not
+available you will get an error something like the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;./crs2crs2grid.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">37</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="kn">from</span> <span class="nn">osgeo</span> <span class="k">import</span> <span class="n">gdal</span><span class="p">,</span> <span class="n">gdal_array</span><span class="p">,</span> <span class="n">osr</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">osgeo</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>   <span class="n">crs2crs2grid</span><span class="o">.</span><span class="n">py</span>
+           <span class="o">&lt;</span><span class="n">src_crs_id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">src_crs_date</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">dst_crs_id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">dst_crs_year</span><span class="o">&gt;</span>
+           <span class="p">[</span><span class="o">-</span><span class="n">griddef</span> <span class="o">&lt;</span><span class="n">ul_lon</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">ul_lat</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">ll_lon</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">ll_lat</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">lon_count</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">lat_count</span><span class="o">&gt;</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">-</span><span class="n">htdp</span> <span class="o">&lt;</span><span class="n">path_to_exe</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">wrkdir</span> <span class="o">&lt;</span><span class="n">dirpath</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">kwf</span><span class="p">]</span>
+           <span class="o">-</span><span class="n">o</span> <span class="o">&lt;</span><span class="n">output_grid_name</span><span class="o">&gt;</span>
+
+<span class="o">-</span><span class="n">griddef</span><span class="p">:</span> <span class="n">by</span> <span class="n">default</span> <span class="n">the</span> <span class="n">following</span> <span class="n">values</span> <span class="k">for</span> <span class="n">roughly</span> <span class="n">the</span> <span class="n">continental</span> <span class="n">USA</span>
+          <span class="n">at</span> <span class="n">a</span> <span class="n">six</span> <span class="n">minute</span> <span class="n">step</span> <span class="n">size</span> <span class="n">are</span> <span class="n">used</span><span class="p">:</span>
+          <span class="o">-</span><span class="mi">127</span> <span class="mi">50</span> <span class="o">-</span><span class="mi">66</span> <span class="mi">25</span> <span class="mi">251</span> <span class="mi">611</span>
+<span class="o">-</span><span class="n">kwf</span><span class="p">:</span> <span class="n">keep</span> <span class="n">working</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">working</span> <span class="n">directory</span> <span class="k">for</span> <span class="n">review</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">crs2crs2grid</span><span class="o">.</span><span class="n">py</span> <span class="mi">29</span> <span class="mf">2002.0</span> <span class="mi">8</span> <span class="mf">2002.0</span> <span class="o">-</span><span class="n">o</span> <span class="n">nad83_2002</span><span class="o">.</span><span class="n">ct2</span>
+</pre></div>
+</div>
+<p>The goal of <cite>crs2crs2grid.py</cite> is to produce a grid shift file for a designated
+region.  The region is defined using the <cite>-griddef</cite> switch.  When missing a
+continental US region is used.  The script creates a set of sample points for
+the grid definition, runs the &#8220;htdp&#8221; program against it and then parses the
+resulting points and computes a point by point shift to encode into the final
+grid shift file.  By default it is assumed the <cite>htdp</cite> program will be in the
+executable path.  If not, please provide the path to the executable using the
+<cite>-htdp</cite> switch.</p>
+<p>The <cite>htdp</cite> program supports transformations between many CRSes and for each (or
+most?) of them you need to provide a date at which the CRS is fixed.  The full
+set of CRS Ids available in the HTDP program are:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="mf">1.</span><span class="o">..</span><span class="n">NAD_83</span><span class="p">(</span><span class="mi">2011</span><span class="p">)</span> <span class="p">(</span><span class="n">North</span> <span class="n">America</span> <span class="n">tectonic</span> <span class="n">plate</span> <span class="n">fixed</span><span class="p">)</span>
+ <span class="mf">29.</span><span class="o">..</span><span class="n">NAD_83</span><span class="p">(</span><span class="n">CORS96</span><span class="p">)</span>  <span class="p">(</span><span class="n">NAD_83</span><span class="p">(</span><span class="mi">2011</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span><span class="p">)</span>
+ <span class="mf">30.</span><span class="o">..</span><span class="n">NAD_83</span><span class="p">(</span><span class="mi">2007</span><span class="p">)</span>    <span class="p">(</span><span class="n">NAD_83</span><span class="p">(</span><span class="mi">2011</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span><span class="p">)</span>
+ <span class="mf">2.</span><span class="o">..</span><span class="n">NAD_83</span><span class="p">(</span><span class="n">PA11</span><span class="p">)</span> <span class="p">(</span><span class="n">Pacific</span> <span class="n">tectonic</span> <span class="n">plate</span> <span class="n">fixed</span><span class="p">)</span>
+ <span class="mf">31.</span><span class="o">..</span><span class="n">NAD_83</span><span class="p">(</span><span class="n">PACP00</span><span class="p">)</span>  <span class="p">(</span><span class="n">NAD</span> <span class="mi">83</span><span class="p">(</span><span class="n">PA11</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span><span class="p">)</span>
+ <span class="mf">3.</span><span class="o">..</span><span class="n">NAD_83</span><span class="p">(</span><span class="n">MA11</span><span class="p">)</span> <span class="p">(</span><span class="n">Mariana</span> <span class="n">tectonic</span> <span class="n">plate</span> <span class="n">fixed</span><span class="p">)</span>
+ <span class="mf">32.</span><span class="o">..</span><span class="n">NAD_83</span><span class="p">(</span><span class="n">MARP00</span><span class="p">)</span>  <span class="p">(</span><span class="n">NAD_83</span><span class="p">(</span><span class="n">MA11</span><span class="p">)</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span><span class="p">)</span>
+
+ <span class="mf">4.</span><span class="o">..</span><span class="n">WGS_72</span>                             <span class="mf">16.</span><span class="o">..</span><span class="n">ITRF92</span>
+ <span class="mf">5.</span><span class="o">..</span><span class="n">WGS_84</span><span class="p">(</span><span class="n">transit</span><span class="p">)</span> <span class="o">=</span> <span class="n">NAD_83</span><span class="p">(</span><span class="mi">2011</span><span class="p">)</span>     <span class="mf">17.</span><span class="o">..</span><span class="n">ITRF93</span>
+ <span class="mf">6.</span><span class="o">..</span><span class="n">WGS_84</span><span class="p">(</span><span class="n">G730</span><span class="p">)</span> <span class="o">=</span> <span class="n">ITRF92</span>              <span class="mf">18.</span><span class="o">..</span><span class="n">ITRF94</span> <span class="o">=</span> <span class="n">ITRF96</span>
+ <span class="mf">7.</span><span class="o">..</span><span class="n">WGS_84</span><span class="p">(</span><span class="n">G873</span><span class="p">)</span> <span class="o">=</span> <span class="n">ITRF96</span>              <span class="mf">19.</span><span class="o">..</span><span class="n">ITRF96</span>
+ <span class="mf">8.</span><span class="o">..</span><span class="n">WGS_84</span><span class="p">(</span><span class="n">G1150</span><span class="p">)</span> <span class="o">=</span> <span class="n">ITRF2000</span>           <span class="mf">20.</span><span class="o">..</span><span class="n">ITRF97</span>
+ <span class="mf">9.</span><span class="o">..</span><span class="n">PNEOS_90</span> <span class="o">=</span> <span class="n">ITRF90</span>                  <span class="mf">21.</span><span class="o">..</span><span class="n">IGS97</span> <span class="o">=</span> <span class="n">ITRF97</span>
+<span class="mf">10.</span><span class="o">..</span><span class="n">NEOS_90</span> <span class="o">=</span> <span class="n">ITRF90</span>                   <span class="mf">22.</span><span class="o">..</span><span class="n">ITRF2000</span>
+<span class="mf">11.</span><span class="o">..</span><span class="n">SIO</span><span class="o">/</span><span class="n">MIT_92</span> <span class="o">=</span> <span class="n">ITRF91</span>                <span class="mf">23.</span><span class="o">..</span><span class="n">IGS00</span> <span class="o">=</span> <span class="n">ITRF2000</span>
+<span class="mf">12.</span><span class="o">..</span><span class="n">ITRF88</span>                             <span class="mf">24.</span><span class="o">..</span><span class="n">IGb00</span> <span class="o">=</span> <span class="n">ITRF2000</span>
+<span class="mf">13.</span><span class="o">..</span><span class="n">ITRF89</span>                             <span class="mf">25.</span><span class="o">..</span><span class="n">ITRF2005</span>
+<span class="mf">14.</span><span class="o">..</span><span class="n">ITRF90</span>                             <span class="mf">26.</span><span class="o">..</span><span class="n">IGS05</span> <span class="o">=</span> <span class="n">ITRF2005</span>
+<span class="mf">15.</span><span class="o">..</span><span class="n">ITRF91</span>                             <span class="mf">27.</span><span class="o">..</span><span class="n">ITRF2008</span>
+                                        <span class="mf">28.</span><span class="o">..</span><span class="n">IGS08</span> <span class="o">=</span> <span class="n">ITRF2008</span>
+</pre></div>
+</div>
+<p>The typical use case is mapping from NAD83 on a particular date to WGS84 on
+some date.  In this case the source CRS Id &#8220;29&#8221; (NAD_83(CORS96)) and the
+destination CRS Id is &#8220;8 (WGS_84(G1150)).  It is also necessary to select the
+source and destination date (epoch).  For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">crs2crs2grid</span><span class="o">.</span><span class="n">py</span> <span class="mi">29</span> <span class="mf">2002.0</span> <span class="mi">8</span> <span class="mf">2002.0</span> <span class="o">-</span><span class="n">o</span> <span class="n">nad83_2002</span><span class="o">.</span><span class="n">ct2</span>
+</pre></div>
+</div>
+<p>The output is a CTable2 format grid shift file suitable for use with PROJ.4
+(4.8.0 or newer).  It might be utilized something like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cs2cs</span> <span class="o">+</span><span class="n">proj</span><span class="o">=</span><span class="n">latlong</span> <span class="o">+</span><span class="n">ellps</span><span class="o">=</span><span class="n">GRS80</span> <span class="o">+</span><span class="n">nadgrids</span><span class="o">=./</span><span class="n">nad83_2002</span><span class="o">.</span><span class="n">ct2</span> <span class="o">+</span><span class="n">to</span> <span class="o">+</span><span class="n">proj</span><span class="o">=</span><span class="n">latlong</span> <span class="o">+</span><span class="n">datum</span><span class="o">=</span><span class="n">WGS84</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ngs.noaa.gov/TOOLS/Htdp/Htdp.shtml">http://www.ngs.noaa.gov/TOOLS/Htdp/Htdp.shtml</a> - NGS/NOAA page about the HTDP
+model and program.  Source for the HTDP program can be downloaded from here.</li>
+</ul>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+    <div class="footer">
+        <div class="container">
+                    &copy;  1986?-2016
+                        Gerald Evenden,
+                        <a href="https://github.com/warmerdam">Frank Warmerdam</a>,
+                        and
+                        <a href="https://github.com/OSGeo/proj.4/graphs/contributors">others</a>,
+                Last updated
+                    on 18 Jun 2016.
+        </div>
+    </div>
+  </body>
+</html>
