@@ -1,128 +1,100 @@
 
+
 <!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parameters &mdash; proj.4 4.9.3 documentation</title>
+  
 
+  
+  
+  
+  
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+
+  
+  
     
-    <title>Parameters &mdash; proj.4 4.9.2 documentation</title>
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="proj.4 4.9.3 documentation" href="index.html"/>
+        <link rel="next" title="Geodesic Calculations" href="geodesic.html"/>
+        <link rel="prev" title="Winkel Tripel" href="projections/wintri.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
     
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.6/paper/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '4.9.2',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="proj.4 4.9.2 documentation" href="index.html" />
-    <link rel="prev" title="Threads" href="threads.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
 
-  </head>
-  <body role="document">
+          
+            <a href="index.html" class="icon icon-home"> proj.4
+          
 
-  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          proj.4</a>
-        <span class="navbar-text navbar-version pull-left"><b>4.9.2</b></span>
-      </div>
+          
+          </a>
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="download.html">Download</a></li>
-                <li><a href="https://github.com/OSGeo/proj.4">GitHub</a></li>
+          
             
             
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">Docs <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="download.html#current-release">Current Release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#past-releases">Past Releases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="download.html#binaries">Binaries</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#where-can-i-find-the-list-of-projections-and-their-arguments">Where can I find the list of projections and their arguments?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-build-configure-proj-4-to-support-datum-shifting">How do I build/configure PROJ.4 to support datum shifting?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-debug-problems-with-nad27-nad83-datum-shifting">How do I debug problems with NAD27/NAD83 datum shifting?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-use-epsg-coordinate-system-codes-with-proj-4">How do I use EPSG coordinate system codes with PROJ.4?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-use-3-parameter-and-7-parameter-datum-shifting">How do I use 3 parameter and 7 parameter datum shifting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#does-proj-4-work-in-different-international-numeric-locales">Does PROJ.4 work in different international numeric locales?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#changing-ellipsoid-why-can-t-i-convert-from-wgs84-to-google-earth-virtual-globe-mercator">Changing Ellipsoid / Why can&#8217;t I convert from WGS84 to Google Earth / Virtual Globe Mercator?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#why-do-i-get-different-results-with-4-5-0-and-4-6-0">Why do I get different results with 4.5.0 and 4.6.0?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-calculate-distances-directions-on-the-surface-of-the-earth">How do I calculate distances/directions on the surface of the earth?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-the-healpix-projection-and-how-can-i-use-it">What is the HEALPix projection and how can I use it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#what-is-the-rhealpix-projection-and-how-can-i-use-it">What is the rHEALPix projection and how can I use it?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#what-options-does-proj-4-allow-for-the-shape-of-the-earth-geodesy">What options does proj.4 allow for the shape of the Earth (geodesy)?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#what-if-i-want-a-spherical-earth">What if I want a spherical Earth?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-change-the-radius-of-the-earth-how-do-i-use-proj-4-for-work-on-mars">How do I change the radius of the Earth?  How do I use proj.4 for work on Mars?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-do-false-eastings-and-false-northings">How do I do False Eastings and False Northings?</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="geodesic.html">Geodesic Calculations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geodesic.html#id1">Geodesic Calculations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geodesic.html#terminology">Terminology</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geodesic.html#the-math">The Math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geodesic.html#the-history">The History</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="grids.html">Grids</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="grids.html#us-canadian-french-and-new-zealand">US, Canadian, French and New Zealand</a></li>
-<li class="toctree-l2"><a class="reference internal" href="grids.html#switzerland">Switzerland</a></li>
-<li class="toctree-l2"><a class="reference internal" href="grids.html#harn">HARN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="grids.html#htdp">HTDP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="grids.html#non-free-grids">Non-Free Grids</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="htpd.html">HTPD</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="htpd.html#getting-and-building-htdp">Getting and building HTDP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="htpd.html#getting-crs2crs2grid-py">Getting crs2crs2grid.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="htpd.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="htpd.html#see-also">See Also</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="threads.html">Threads</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="threads.html#key-thread-safety-issues">Key Thread Safety Issues</a></li>
-<li class="toctree-l2"><a class="reference internal" href="threads.html#projctx">projCtx</a></li>
-<li class="toctree-l2"><a class="reference internal" href="threads.html#src-multistresstest-c">src/multistresstest.c</a></li>
-</ul>
-</li>
+              <div class="version">
+                4.9.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apps/index.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projections/index.html">Projections</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Parameters</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#parameter-list">Parameter list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#units">Units</a></li>
@@ -131,80 +103,84 @@
 <li class="toctree-l2"><a class="reference internal" href="#lon-wrap-over-longitude-wrapping">lon_wrap, over - Longitude Wrapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pm-prime-meridian">pm - Prime Meridian</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#towgs84-datum-transformation-to-wgs84">towgs84 - Datum transformation to WGS84</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nadgrids-grid-based-datum-adjustments">nadgrids - Grid Based Datum Adjustments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nadgrids-grid-based-datum-adjustments">nadgrids - Grid Based Datum Adjustments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#skipping-missing-grids">Skipping Missing Grids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-null-grid">The null Grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#downloading-and-installing-grids">Downloading and Installing Grids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#caveats">Caveats</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#axis-orientation">Axis orientation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="geodesic.html">Geodesic Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grids.html">Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="htpd.html">HTPD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Here <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Parameters</a><ul>
-<li><a class="reference internal" href="#parameter-list">Parameter list</a></li>
-<li><a class="reference internal" href="#units">Units</a></li>
-<li><a class="reference internal" href="#vertical-units">Vertical Units</a></li>
-<li><a class="reference internal" href="#false-easting-northing">False Easting/Northing</a></li>
-<li><a class="reference internal" href="#lon-wrap-over-longitude-wrapping">lon_wrap, over - Longitude Wrapping</a></li>
-<li><a class="reference internal" href="#pm-prime-meridian">pm - Prime Meridian</a></li>
-<li><a class="reference internal" href="#towgs84-datum-transformation-to-wgs84">towgs84 - Datum transformation to WGS84</a></li>
-<li><a class="reference internal" href="#nadgrids-grid-based-datum-adjustments">nadgrids - Grid Based Datum Adjustments</a><ul>
-<li><a class="reference internal" href="#skipping-missing-grids">Skipping Missing Grids</a></li>
-<li><a class="reference internal" href="#the-null-grid">The null Grid</a></li>
-<li><a class="reference internal" href="#downloading-and-installing-grids">Downloading and Installing Grids</a></li>
-<li><a class="reference internal" href="#caveats">Caveats</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#axis-orientation">Axis orientation</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="threads.html" title="Previous Chapter: Threads"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Threads</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm"></li>
-            
-          </ul>
 
-          
             
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
           
         </div>
-    </div>
-  </div>
+      </div>
+    </nav>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
       
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">proj.4</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Parameters</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="parameters">
 <span id="id1"></span><h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h1>
 <table class="docutils field-list" frame="void" rules="none">
@@ -242,7 +218,7 @@
 be applied to all, or many coordinate system definitions.  This document does
 not attempt to describe the parameters particular to particular projection
 types.  Some of these can be found in the GeoTIFF <a class="reference external" href="http://www.remotesensing.org/geotiff/proj_list/">Projections Transform List</a>.  The definitive
-documentation for most parameters is Gerald&#8217;s original documentation available
+documentation for most parameters is Gerald’s original documentation available
 from the main PROJ.4 page.</p>
 <div class="section" id="parameter-list">
 <h2>Parameter list<a class="headerlink" href="#parameter-list" title="Permalink to this headline">¶</a></h2>
@@ -279,7 +255,7 @@ from the main PROJ.4 page.</p>
 +zone      UTM zone
 </pre></div>
 </div>
-<p>Extended list provided by Gerald Evenden &#8220;grepped out of the RCS directory&#8221;.</p>
+<p>Extended list provided by Gerald Evenden “grepped out of the RCS directory”.</p>
 <p>(libproj4 by G.E.; no datum support)</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>+a         Semimajor radius of the ellipsoid axis
 +alpha     ? Used with Oblique Mercator and possibly a few others
@@ -313,7 +289,8 @@ from the main PROJ.4 page.</p>
 +M
 +n
 +no_cut
-+no_off
++no_off    No offset. If present, do not offset origin to center of projection. Only used in Oblique Mercator projection.
++no_uoff   Backwards compatible version of +no_off.
 +no_rot
 +ns
 +o_alpha
@@ -357,7 +334,7 @@ from the main PROJ.4 page.</p>
 +zone      UTM zone
 </pre></div>
 </div>
-<p>See GE&#8217;s <a class="reference external" href="http://members.verizon.net/~gerald.evenden/proj4/manual.pdf">libproj4
+<p>See GE’s <a class="reference external" href="http://members.verizon.net/~gerald.evenden/proj4/manual.pdf">libproj4
 manual</a> for
 further details (<a class="reference external" href="http://web.archive.org/web/20080807155507/http://members.verizon.net/~gerald.evenden/proj4/manual.pdf">copy in wayback machine</a>).</p>
 <p>Further details for projection at <a class="reference external" href="http://www.remotesensing.org/geotiff/proj_list/">http://www.remotesensing.org/geotiff/proj_list/</a></p>
@@ -367,8 +344,10 @@ further details (<a class="reference external" href="http://web.archive.org/web/
 <p>Horizontal units can be specified using the +units= keyword with a symbolic
 name for a unit (ie. us-ft).  Alternatively the translation to meters can be
 specified with the +to_meter keyword (ie. 0.304800609601219 for US feet).  The
-<code class="docutils literal"><span class="pre">-lu</span></code> argument to cs2cs or proj can be used to list symbolic unit names.  The
-default unit is degrees.</p>
+<code class="docutils literal"><span class="pre">-lu</span></code> argument to cs2cs or proj can be used to list symbolic unit names.
+The default unit for projected coordinates is the meter.
+A few special projections deviate from this behaviour, most notably the
+latlong pseudo-projection that returns degrees.</p>
 </div>
 <div class="section" id="vertical-units">
 <h2>Vertical Units<a class="headerlink" href="#vertical-units" title="Permalink to this headline">¶</a></h2>
@@ -406,7 +385,7 @@ center longitude.  So <code class="docutils literal"><span class="pre">+lon_wrap
 <h2>pm - Prime Meridian<a class="headerlink" href="#pm-prime-meridian" title="Permalink to this headline">¶</a></h2>
 <p>A prime meridian may be declared indicating the offset between the prime
 meridian of the declared coordinate system and that of greenwich.  A prime
-meridian is clared using the &#8220;pm&#8221; parameter, and may be assigned a symbolic
+meridian is clared using the “pm” parameter, and may be assigned a symbolic
 name, or the longitude of the alternative prime meridian relative to greenwich.</p>
 <p>Currently prime meridian declarations are only utilized by the
 <code class="docutils literal"><span class="pre">pj_transform()</span></code> API call, not the <code class="docutils literal"><span class="pre">pj_inv()</span></code> and <code class="docutils literal"><span class="pre">pj_fwd()</span></code> calls.
@@ -467,7 +446,7 @@ The three translation parameters are in meters as in the three parameter case.
 The rotational parameters are in seconds of arc.  The scaling is apparently the
 scale change in parts per million.</p>
 <p>A more complete discussion of the 3 and 7 parameter transformations can be
-found in the EPSG database (trf_method&#8217;s 9603 and 9606).  Within PROJ.4 the
+found in the EPSG database (trf_method’s 9603 and 9606).  Within PROJ.4 the
 following calculations are used to apply the <code class="docutils literal"><span class="pre">towgs84</span></code> transformation (going
 to WGS84).  The x, y and z coordinates are in geocentric coordinates.</p>
 <p>Three parameter transformation (simple offsets):</p>
@@ -575,7 +554,7 @@ PROJ.4 source distribution, and re-configure, compile and install.  The
 distributed ASCII .lla files are converted into binary (platform specific)
 files that are installed.  On windows using the nmake /f makefile.vc nadshift
 command in the projsrc directory to build and install these files.</p>
-<p>It appears we can&#8217;t redistribute the Canadian NTv2 grid shift file freely,
+<p>It appears we can’t redistribute the Canadian NTv2 grid shift file freely,
 though it is better than the NTv1 file.  However, end users can download it for
 free from the <a class="reference external" href="http://www.geod.nrcan.gc.ca/tools-outils/ntv2_e.php">NRCan web site</a>.  After downloading
 it, just dump it in the data directory with the other installed data files
@@ -593,7 +572,7 @@ Careful selection of files and file order is necessary.  In some cases
 border spanning datasets may need to be pre-segmented into Canadian and
 American points so they can be properly grid shifted</li>
 <li>There are additional grids for shifting between NAD83 and various HPGN
-versions of the NAD83 datum.  Use of these haven&#8217;t been tried recently so
+versions of the NAD83 datum.  Use of these haven’t been tried recently so
 you may encounter problems.  The FL.lla, WO.lla, MD.lla, TN.lla and WI.lla
 are examples of high precision grid shifts.  Take care!</li>
 <li>Additional detail on the grid shift being applied can be found by setting
@@ -608,24 +587,24 @@ WGS84).  Other types of grids might or might not be usable</li>
 <div class="section" id="axis-orientation">
 <h2>Axis orientation<a class="headerlink" href="#axis-orientation" title="Permalink to this headline">¶</a></h2>
 <p>Starting in PROJ 4.8.0, the +axis argument can be used to control the axis
-orientation of the coordinate system.  The default orientation is &#8220;easting,
-northing, up&#8221; but directions can be flipped, or axes flipped using combinations
+orientation of the coordinate system.  The default orientation is “easting,
+northing, up” but directions can be flipped, or axes flipped using combinations
 of the axes in the +axis switch.  The values are:</p>
 <ul class="simple">
-<li>&#8220;e&#8221; - Easting</li>
-<li>&#8220;w&#8221; - Westing</li>
-<li>&#8220;n&#8221; - Northing</li>
-<li>&#8220;s&#8221; - Southing</li>
-<li>&#8220;u&#8221; - Up</li>
-<li>&#8220;d&#8221; - Down</li>
+<li>“e” - Easting</li>
+<li>“w” - Westing</li>
+<li>“n” - Northing</li>
+<li>“s” - Southing</li>
+<li>“u” - Up</li>
+<li>“d” - Down</li>
 </ul>
 <p>They can be combined in +axis in forms like:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">+axis=enu</span></code> - the default easting, northing, elevation.</li>
-<li><code class="docutils literal"><span class="pre">+axis=neu</span></code> - northing, easting, up - useful for &#8220;lat/long&#8221; geographic
+<li><code class="docutils literal"><span class="pre">+axis=neu</span></code> - northing, easting, up - useful for “lat/long” geographic
 coordinates, or south orientated transverse mercator.</li>
 <li><code class="docutils literal"><span class="pre">+axis=wnu</span></code> - westing, northing, up - some planetary coordinate systems
-have &#8220;west positive&#8221; coordinate systems</li>
+have “west positive” coordinate systems</li>
 </ul>
 <p>Note that the <code class="docutils literal"><span class="pre">+axis</span></code> argument only applies to coordinate transformations done
 through <code class="docutils literal"><span class="pre">pj_transform()</span></code> (so it works with <code class="docutils literal"><span class="pre">cs2cs</span></code>, but not with the proj
@@ -634,20 +613,77 @@ commandline program).</p>
 </div>
 
 
-    </div>
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-  </div>
-</div>
-    <div class="footer">
-        <div class="container">
-                    &copy;  1986?-2016
-                        Gerald Evenden,
-                        <a href="https://github.com/warmerdam">Frank Warmerdam</a>,
-                        and
-                        <a href="https://github.com/OSGeo/proj.4/graphs/contributors">others</a>,
-                Last updated
-                    on 18 Jun 2016.
-        </div>
+        <a href="geodesic.html" class="btn btn-neutral float-right" title="Geodesic Calculations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="projections/wintri.html" class="btn btn-neutral" title="Winkel Tripel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
-  </body>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 1986?-2016.
+      Last updated on 18 Jul 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.9.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>

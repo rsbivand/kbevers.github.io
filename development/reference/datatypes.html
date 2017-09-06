@@ -1,0 +1,823 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data types &mdash; PROJ.4 4.9.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="PROJ.4 4.9.3 documentation" href="../../index.html"/>
+        <link rel="up" title="Reference" href="index.html"/>
+        <link rel="next" title="Functions" href="functions.html"/>
+        <link rel="prev" title="Reference" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PROJ.4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.9.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usage/index.html">Using PROJ.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projections/index.html">Projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../geodesic.html">Geodesic Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grids.html">Grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../htpd.html">HTPD</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Development</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transformations.html">Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errorhandling.html">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../threads.html">Threads</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Data types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dimensional-coordinates">2 dimensional coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">3 dimensional coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spatiotemporal-coordinate-types">Spatiotemporal coordinate types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ancillary-types-for-geodetic-computations">Ancillary types for geodetic computations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#projection-derivatives">Projection derivatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#info-structures">Info structures</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deprecated.html">Deprecated API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../bindings.html">Language bindings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../download.html">Download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PROJ.4</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Development</a> &raquo;</li>
+        
+          <li><a href="index.html">Reference</a> &raquo;</li>
+        
+      <li>Data types</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-types">
+<span id="datatypes"></span><h1>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h1>
+<p>This section describe the multiplude of data types in use in PROJ.4. As a rule
+of thumb PROJ.4 data types are prefixed with <code class="docutils literal"><span class="pre">PJ_</span></code>, although with a few notable
+exceptions that can be traced back to the very early days of PROJ.4 when the
+<code class="docutils literal"><span class="pre">PJ_</span></code> prefix was not consistenly used.</p>
+<p>PROJ.4 comes with a large range of coordinate data types, some are simple and
+generic, others are complex and made for a very specific purpose.</p>
+<div class="section" id="dimensional-coordinates">
+<h2>2 dimensional coordinates<a class="headerlink" href="#dimensional-coordinates" title="Permalink to this headline">¶</a></h2>
+<dl class="type">
+<dt id="c.LP">
+<code class="descname">LP</code><a class="headerlink" href="#c.LP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic type for a pair of longitude and latitude. The unit of longitude and
+latitude is usually radians.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">lam</span><span class="p">,</span> <span class="n">phi</span><span class="p">;</span> <span class="p">}</span> <span class="n">LP</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.LP.LP.lam">
+double <code class="descname">LP.lam</code><a class="headerlink" href="#c.LP.LP.lam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Longitude. Lambda.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.LP.LP.phi">
+double <code class="descname">LP.phi</code><a class="headerlink" href="#c.LP.LP.phi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Latitude. Phi.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.XY">
+<code class="descname">XY</code><a class="headerlink" href="#c.XY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic type for a projected coordinate.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span> <span class="p">}</span> <span class="n">XY</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.XY.XY.lam">
+double <code class="descname">XY.lam</code><a class="headerlink" href="#c.XY.XY.lam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Easting.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.XY.XY.phi">
+double <code class="descname">XY.phi</code><a class="headerlink" href="#c.XY.XY.phi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Northing.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.UV">
+<code class="descname">UV</code><a class="headerlink" href="#c.UV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic type for a coordinate. Can be either geodetic or projected.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span><span class="kt">double</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">;</span> <span class="p">}</span> <span class="n">UV</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.UV.UV.u">
+double <code class="descname">UV.u</code><a class="headerlink" href="#c.UV.UV.u" title="Permalink to this definition">¶</a></dt>
+<dd><p>Longitude or easting, depending on use.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.UV.UV.v">
+double <code class="descname">UV.v</code><a class="headerlink" href="#c.UV.UV.v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Latitude or northing, depending on use.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.PJ_EN">
+<code class="descname">PJ_EN</code><a class="headerlink" href="#c.PJ_EN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic easting/northing coordinate.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span> <span class="p">}</span> <span class="n">PJ_EN</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.PJ_EN.PJ_EN.e">
+double <code class="descname">PJ_EN.e</code><a class="headerlink" href="#c.PJ_EN.PJ_EN.e" title="Permalink to this definition">¶</a></dt>
+<dd><p>Easting</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_EN.PJ_EN.n">
+double <code class="descname">PJ_EN.n</code><a class="headerlink" href="#c.PJ_EN.PJ_EN.n" title="Permalink to this definition">¶</a></dt>
+<dd><p>Northing</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h2>3 dimensional coordinates<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<dl class="type">
+<dt id="c.LPZ">
+<code class="descname">LPZ</code><a class="headerlink" href="#c.LPZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic type for a triplet of longitude, latitude and a height. The unit of
+longitude and latitude is usually radians and meters for the height.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">lam</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span> <span class="p">}</span> <span class="n">LP</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.LPZ.LPZ.lam">
+double <code class="descname">LPZ.lam</code><a class="headerlink" href="#c.LPZ.LPZ.lam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Longitude. Lambda.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.LPZ.LPZ.phi">
+double <code class="descname">LPZ.phi</code><a class="headerlink" href="#c.LPZ.LPZ.phi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Latitude. Phi.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.LPZ.LPZ.z">
+double <code class="descname">LPZ.z</code><a class="headerlink" href="#c.LPZ.LPZ.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical component.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.XYZ">
+<code class="descname">XYZ</code><a class="headerlink" href="#c.XYZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic type for a 3-dimensional projected coordinate.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span> <span class="p">}</span> <span class="n">XY</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.XYZ.XYZ.x">
+double <code class="descname">XYZ.x</code><a class="headerlink" href="#c.XYZ.XYZ.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Easting.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.XYZ.XYZ.y">
+double <code class="descname">XYZ.y</code><a class="headerlink" href="#c.XYZ.XYZ.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Northing.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.XYZ.XYZ.z">
+double <code class="descname">XYZ.z</code><a class="headerlink" href="#c.XYZ.XYZ.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical component.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.UVW">
+<code class="descname">UVW</code><a class="headerlink" href="#c.UVW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic type for a 3-dimensional coordinate. Can be either geodetic or projected.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span><span class="kt">double</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span> <span class="p">}</span> <span class="n">UVW</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.UVW.UVW.u">
+double <code class="descname">UVW.u</code><a class="headerlink" href="#c.UVW.UVW.u" title="Permalink to this definition">¶</a></dt>
+<dd><p>Longitude or easting, depending on use.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.UVW.UVW.v">
+double <code class="descname">UVW.v</code><a class="headerlink" href="#c.UVW.UVW.v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Latitude or northing, depending on use.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.UVW.UVW.w">
+double <code class="descname">UVW.w</code><a class="headerlink" href="#c.UVW.UVW.w" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical component.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.PJ_ENH">
+<code class="descname">PJ_ENH</code><a class="headerlink" href="#c.PJ_ENH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Easting, northing and height.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span><span class="kt">double</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">h</span><span class="p">;</span> <span class="p">}</span> <span class="n">PJ_ENH</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.PJ_ENH.PJ_ENH.e">
+double <code class="descname">PJ_ENH.e</code><a class="headerlink" href="#c.PJ_ENH.PJ_ENH.e" title="Permalink to this definition">¶</a></dt>
+<dd><p>Easting</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_ENH.PJ_ENH.n">
+double <code class="descname">PJ_ENH.n</code><a class="headerlink" href="#c.PJ_ENH.PJ_ENH.n" title="Permalink to this definition">¶</a></dt>
+<dd><p>Northing</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_ENH.PJ_ENH.h">
+double <code class="descname">PJ_ENH.h</code><a class="headerlink" href="#c.PJ_ENH.PJ_ENH.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Height</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.PJ_TRIPLET">
+<code class="descname">PJ_TRIPLET</code><a class="headerlink" href="#c.PJ_TRIPLET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Union type that groups all coordinate data types of two and tree dimensions.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">union</span> <span class="n">PJ_TRIPLET</span> <span class="p">{</span>
+    <span class="n">PJ_OPK</span>  <span class="n">opk</span><span class="p">;</span>
+    <span class="n">PJ_ENH</span>  <span class="n">enh</span><span class="p">;</span>
+    <span class="n">PJ_EZN</span>  <span class="n">ezn</span><span class="p">;</span>
+    <span class="n">PJ_DMS</span>  <span class="n">dms</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+    <span class="n">XYZ</span>    <span class="n">xyz</span><span class="p">;</span>
+    <span class="n">LPZ</span>    <span class="n">lpz</span><span class="p">;</span>
+    <span class="n">UVW</span>    <span class="n">uvw</span><span class="p">;</span>
+    <span class="n">XY</span>     <span class="n">xy</span><span class="p">;</span>
+    <span class="n">LP</span>     <span class="n">lp</span><span class="p">;</span>
+    <span class="n">UV</span>     <span class="n">uv</span><span class="p">;</span>
+    <span class="n">PJ_AF</span>  <span class="n">af</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">PJ_TRIPLET</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.PJ_TRIPLET.PJ_TRIPLET.opk">
+<a class="reference internal" href="#c.PJ_OPK" title="PJ_OPK">PJ_OPK</a> <code class="descname">PJ_TRIPLET.opk</code><a class="headerlink" href="#c.PJ_TRIPLET.PJ_TRIPLET.opk" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_TRIPLET.PJ_TRIPLET.enh">
+<a class="reference internal" href="#c.PJ_ENH" title="PJ_ENH">PJ_ENH</a> <code class="descname">PJ_TRIPLET.enh</code><a class="headerlink" href="#c.PJ_TRIPLET.PJ_TRIPLET.enh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_TRIPLET.PJ_TRIPLET.ezn">
+<a class="reference internal" href="#c.PJ_EZN" title="PJ_EZN">PJ_EZN</a> <code class="descname">PJ_TRIPLET.ezn</code><a class="headerlink" href="#c.PJ_TRIPLET.PJ_TRIPLET.ezn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_TRIPLET.PJ_TRIPLET.dsm">
+<a class="reference internal" href="#c.PJ_DMS" title="PJ_DMS">PJ_DMS</a> <code class="descname">PJ_TRIPLET.dsm</code><a class="headerlink" href="#c.PJ_TRIPLET.PJ_TRIPLET.dsm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt>
+<code class="descname">double PJ_TRIPLET.v[3]</code></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_TRIPLET.PJ_TRIPLET.xyz">
+<a class="reference internal" href="#c.XYZ" title="XYZ">XYZ</a> <code class="descname">PJ_TRIPLET.xyz</code><a class="headerlink" href="#c.PJ_TRIPLET.PJ_TRIPLET.xyz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_TRIPLET.PJ_TRIPLET.lpz">
+<a class="reference internal" href="#c.LPZ" title="LPZ">LPZ</a> <code class="descname">PJ_TRIPLET.lpz</code><a class="headerlink" href="#c.PJ_TRIPLET.PJ_TRIPLET.lpz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_TRIPLET.PJ_TRIPLET.uvw">
+<a class="reference internal" href="#c.UVW" title="UVW">UVW</a> <code class="descname">PJ_TRIPLET.uvw</code><a class="headerlink" href="#c.PJ_TRIPLET.PJ_TRIPLET.uvw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_TRIPLET.PJ_TRIPLET.xy">
+<a class="reference internal" href="#c.XY" title="XY">XY</a> <code class="descname">PJ_TRIPLET.xy</code><a class="headerlink" href="#c.PJ_TRIPLET.PJ_TRIPLET.xy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_TRIPLET.PJ_TRIPLET.lp">
+<a class="reference internal" href="#c.LP" title="LP">LP</a> <code class="descname">PJ_TRIPLET.lp</code><a class="headerlink" href="#c.PJ_TRIPLET.PJ_TRIPLET.lp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_TRIPLET.PJ_TRIPLET.uv">
+<a class="reference internal" href="#c.UV" title="UV">UV</a> <code class="descname">PJ_TRIPLET.uv</code><a class="headerlink" href="#c.PJ_TRIPLET.PJ_TRIPLET.uv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_TRIPLET.PJ_TRIPLET.af">
+<a class="reference internal" href="#c.PJ_AF" title="PJ_AF">PJ_AF</a> <code class="descname">PJ_TRIPLET.af</code><a class="headerlink" href="#c.PJ_TRIPLET.PJ_TRIPLET.af" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="spatiotemporal-coordinate-types">
+<h2>Spatiotemporal coordinate types<a class="headerlink" href="#spatiotemporal-coordinate-types" title="Permalink to this headline">¶</a></h2>
+<p>The following data types are extensions of the triplets above into the time
+domain.</p>
+<dl class="type">
+<dt id="c.PJ_LPZT">
+<code class="descname">PJ_LPZT</code><a class="headerlink" href="#c.PJ_LPZT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spatiotemporal version of <a class="reference internal" href="#c.LPZ" title="LPZ"><code class="xref c c-type docutils literal"><span class="pre">LPZ</span></code></a>.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">lam</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">phi</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">z</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">t</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.PJ_LPZT.PJ_LPZT.lam">
+double <code class="descname">PJ_LPZT.lam</code><a class="headerlink" href="#c.PJ_LPZT.PJ_LPZT.lam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Longitude.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_LPZT.PJ_LPZT.phi">
+double <code class="descname">PJ_LPZT.phi</code><a class="headerlink" href="#c.PJ_LPZT.PJ_LPZT.phi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Latitude</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_LPZT.PJ_LPZT.z">
+double <code class="descname">PJ_LPZT.z</code><a class="headerlink" href="#c.PJ_LPZT.PJ_LPZT.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical component.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_LPZT.PJ_LPZT.t">
+double <code class="descname">PJ_LPZT.t</code><a class="headerlink" href="#c.PJ_LPZT.PJ_LPZT.t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time component.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.PJ_XYZT">
+<code class="descname">PJ_XYZT</code><a class="headerlink" href="#c.PJ_XYZT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic spatiotemporal coordinate. Usefull for e.g. cartesian coordinates with
+an attached time-stamp.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">z</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">t</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">PJ_XYZT</span><span class="p">;</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.PJ_XYZT.PJ_XYZT.x">
+double <code class="descname">PJ_XYZT.x</code><a class="headerlink" href="#c.PJ_XYZT.PJ_XYZT.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Easting.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_XYZT.PJ_XYZT.y">
+double <code class="descname">PJ_XYZT.y</code><a class="headerlink" href="#c.PJ_XYZT.PJ_XYZT.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Northing.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_XYZT.PJ_XYZT.z">
+double <code class="descname">PJ_XYZT.z</code><a class="headerlink" href="#c.PJ_XYZT.PJ_XYZT.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical component.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_XYZT.PJ_XYZT.t">
+double <code class="descname">PJ_XYZT.t</code><a class="headerlink" href="#c.PJ_XYZT.PJ_XYZT.t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time component.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.PJ_UVWT">
+<code class="descname">PJ_UVWT</code><a class="headerlink" href="#c.PJ_UVWT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spatiotemporal version of <code class="xref c c-type docutils literal"><span class="pre">PJ_UVW</span></code>.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span><span class="kt">double</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span> <span class="n">PJ_UVWT</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.PJ_UVWT.PJ_UVWT.e">
+double <code class="descname">PJ_UVWT.e</code><a class="headerlink" href="#c.PJ_UVWT.PJ_UVWT.e" title="Permalink to this definition">¶</a></dt>
+<dd><p>First horizontal component.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_UVWT.PJ_UVWT.n">
+double <code class="descname">PJ_UVWT.n</code><a class="headerlink" href="#c.PJ_UVWT.PJ_UVWT.n" title="Permalink to this definition">¶</a></dt>
+<dd><p>Second horizontal component.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_UVWT.PJ_UVWT.w">
+double <code class="descname">PJ_UVWT.w</code><a class="headerlink" href="#c.PJ_UVWT.PJ_UVWT.w" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical component.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_UVWT.PJ_UVWT.t">
+double <code class="descname">PJ_UVWT.t</code><a class="headerlink" href="#c.PJ_UVWT.PJ_UVWT.t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Temporal component.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.PJ_ENHT">
+<code class="descname">PJ_ENHT</code><a class="headerlink" href="#c.PJ_ENHT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spatiotemporal version of <a class="reference internal" href="#c.PJ_ENH" title="PJ_ENH"><code class="xref c c-type docutils literal"><span class="pre">PJ_ENH</span></code></a>.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span><span class="kt">double</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span> <span class="n">PJ_ENHT</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.PJ_ENHT.PJ_ENHT.e">
+double <code class="descname">PJ_ENHT.e</code><a class="headerlink" href="#c.PJ_ENHT.PJ_ENHT.e" title="Permalink to this definition">¶</a></dt>
+<dd><p>Easting</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_ENHT.PJ_ENHT.n">
+double <code class="descname">PJ_ENHT.n</code><a class="headerlink" href="#c.PJ_ENHT.PJ_ENHT.n" title="Permalink to this definition">¶</a></dt>
+<dd><p>Northing</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_ENHT.PJ_ENHT.h">
+double <code class="descname">PJ_ENHT.h</code><a class="headerlink" href="#c.PJ_ENHT.PJ_ENHT.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Height</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_ENHT.PJ_ENHT.t">
+double <code class="descname">PJ_ENHT.t</code><a class="headerlink" href="#c.PJ_ENHT.PJ_ENHT.t" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.PJ_COORD">
+<code class="descname">PJ_COORD</code><a class="headerlink" href="#c.PJ_COORD" title="Permalink to this definition">¶</a></dt>
+<dd><p>General purpose 4-dimensional union type.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ancillary-types-for-geodetic-computations">
+<h2>Ancillary types for geodetic computations<a class="headerlink" href="#ancillary-types-for-geodetic-computations" title="Permalink to this headline">¶</a></h2>
+<dl class="type">
+<dt id="c.PJ_OPK">
+<code class="descname">PJ_OPK</code><a class="headerlink" href="#c.PJ_OPK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotations, for instance three euler angles.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">o</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span> <span class="p">}</span> <span class="n">PJ_OPK</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.PJ_OPK.PJ_OPK.o">
+double <code class="descname">PJ_OPK.o</code><a class="headerlink" href="#c.PJ_OPK.PJ_OPK.o" title="Permalink to this definition">¶</a></dt>
+<dd><p>First rotation angle, omega.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_OPK.PJ_OPK.p">
+double <code class="descname">PJ_OPK.p</code><a class="headerlink" href="#c.PJ_OPK.PJ_OPK.p" title="Permalink to this definition">¶</a></dt>
+<dd><p>Second rotation angle, phi.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_OPK.PJ_OPK.k">
+double <code class="descname">PJ_OPK.k</code><a class="headerlink" href="#c.PJ_OPK.PJ_OPK.k" title="Permalink to this definition">¶</a></dt>
+<dd><p>Third rotation angle, kappa.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.PJ_DMS">
+<code class="descname">PJ_DMS</code><a class="headerlink" href="#c.PJ_DMS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describe a longitude or latitude by degrees, minutes and seconds.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">d</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">;</span> <span class="p">}</span> <span class="n">PJ_DMS</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.PJ_DMS.PJ_DMS.d">
+double <code class="descname">PJ_DMS.d</code><a class="headerlink" href="#c.PJ_DMS.PJ_DMS.d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Degrees.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_DMS.PJ_DMS.m">
+double <code class="descname">PJ_DMS.m</code><a class="headerlink" href="#c.PJ_DMS.PJ_DMS.m" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minutes</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_DMS.PJ_DMS.s">
+double <code class="descname">PJ_DMS.s</code><a class="headerlink" href="#c.PJ_DMS.PJ_DMS.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seconds.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.PJ_EZN">
+<code class="descname">PJ_EZN</code><a class="headerlink" href="#c.PJ_EZN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Geoid undulation and deflections of the vertical.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="kt">double</span> <span class="n">e</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">N</span><span class="p">;</span> <span class="p">}</span> <span class="n">PJ_EZN</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.PJ_EZN.PJ_EZN.e">
+double <code class="descname">PJ_EZN.e</code><a class="headerlink" href="#c.PJ_EZN.PJ_EZN.e" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deflection of the vertical, eta.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_EZN.PJ_EZN.z">
+double <code class="descname">PJ_EZN.z</code><a class="headerlink" href="#c.PJ_EZN.PJ_EZN.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deflection of the vertical, zeta</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_EZN.PJ_EZN.N">
+double <code class="descname">PJ_EZN.N</code><a class="headerlink" href="#c.PJ_EZN.PJ_EZN.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>Geoid undulation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="c.PJ_AF">
+<code class="descname">PJ_AF</code><a class="headerlink" href="#c.PJ_AF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ellipsoidal parameters.</p>
+<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">f</span><span class="p">;</span> <span class="p">}</span> <span class="n">PJ_AF</span>
+</pre></div>
+</div>
+<dl class="member">
+<dt id="c.PJ_AF.PJ_AF.a">
+double <code class="descname">PJ_AF.a</code><a class="headerlink" href="#c.PJ_AF.PJ_AF.a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Major axis of ellipsoid.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="c.PJ_AF.PJ_AF.f">
+double <code class="descname">PJ_AF.f</code><a class="headerlink" href="#c.PJ_AF.PJ_AF.f" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flattening of ellipsoid.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="projection-derivatives">
+<h2>Projection derivatives<a class="headerlink" href="#projection-derivatives" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="info-structures">
+<h2>Info structures<a class="headerlink" href="#info-structures" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="functions.html" class="btn btn-neutral float-right" title="Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 1986?-2016.
+      Last updated on 06 Sep 2017.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.9.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

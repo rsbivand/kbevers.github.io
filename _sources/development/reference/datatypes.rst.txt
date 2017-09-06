@@ -1,0 +1,432 @@
+.. _datatypes:
+
+================================================================================
+Data types
+================================================================================
+
+This section describe the multiplude of data types in use in PROJ.4. As a rule
+of thumb PROJ.4 data types are prefixed with ``PJ_``, although with a few notable
+exceptions that can be traced back to the very early days of PROJ.4 when the
+``PJ_`` prefix was not consistenly used.
+
+PROJ.4 comes with a large range of coordinate data types, some are simple and
+generic, others are complex and made for a very specific purpose.
+
+2 dimensional coordinates
+--------------------------------------------------------------------------------
+
+.. c:type:: LP
+
+    Basic type for a pair of longitude and latitude. The unit of longitude and
+    latitude is usually radians.
+
+    .. code-block:: C
+
+        typedef struct { double lam, phi; } LP;
+
+    .. c:member:: double LP.lam
+
+        Longitude. Lambda.
+
+    .. c:member:: double LP.phi
+
+        Latitude. Phi.
+
+
+.. c:type:: XY
+
+    Basic type for a projected coordinate.
+
+    .. code-block:: C
+
+        typedef struct { double x, y; } XY;
+
+
+    .. c:member:: double XY.lam
+
+        Easting.
+
+    .. c:member:: double XY.phi
+
+        Northing.
+
+
+.. c:type:: UV
+
+    Basic type for a coordinate. Can be either geodetic or projected.
+
+    .. code-block:: C
+
+        typedef struct {double u, v; } UV;
+
+
+    .. c:member:: double UV.u
+
+        Longitude or easting, depending on use.
+
+    .. c:member:: double UV.v
+
+        Latitude or northing, depending on use.
+
+
+.. c:type:: PJ_EN
+
+    Generic easting/northing coordinate.
+
+    .. code-block:: C
+
+        typedef struct { double e, n; } PJ_EN;
+
+    .. c:member:: double PJ_EN.e
+
+        Easting
+
+    .. c:member:: double PJ_EN.n
+
+        Northing
+
+3 dimensional coordinates
+--------------------------------------------------------------------------------
+
+
+.. c:type:: LPZ
+
+    Basic type for a triplet of longitude, latitude and a height. The unit of
+    longitude and latitude is usually radians and meters for the height.
+
+    .. code-block:: C
+
+        typedef struct { double lam, phi, z; } LP;
+
+    .. c:member:: double LPZ.lam
+
+        Longitude. Lambda.
+
+    .. c:member:: double LPZ.phi
+
+        Latitude. Phi.
+
+    .. c:member:: double LPZ.z
+
+        Vertical component.
+
+
+.. c:type:: XYZ
+
+    Basic type for a 3-dimensional projected coordinate.
+
+    .. code-block:: C
+
+        typedef struct { double x, y; } XY;
+
+    .. c:member:: double XYZ.x
+
+        Easting.
+
+    .. c:member:: double XYZ.y
+
+        Northing.
+
+    .. c:member:: double XYZ.z
+
+        Vertical component.
+
+
+.. c:type:: UVW
+
+    Basic type for a 3-dimensional coordinate. Can be either geodetic or projected.
+
+    .. code-block:: C
+
+        typedef struct {double u, v, w; } UVW;
+
+    .. c:member:: double UVW.u
+
+        Longitude or easting, depending on use.
+
+    .. c:member:: double UVW.v
+
+        Latitude or northing, depending on use.
+
+    .. c:member:: double UVW.w
+
+        Vertical component.
+
+
+.. c:type:: PJ_ENH
+
+    Easting, northing and height.
+
+    .. code-block:: C
+
+        typedef struct {double e, n, h; } PJ_ENH
+
+    .. c:member:: double PJ_ENH.e
+
+        Easting
+
+    .. c:member:: double PJ_ENH.n
+
+        Northing
+
+    .. c:member:: double PJ_ENH.h
+
+        Height
+
+
+.. c:type:: PJ_TRIPLET
+
+    Union type that groups all coordinate data types of two and tree dimensions.
+
+    .. code-block:: C
+
+        typedef union PJ_TRIPLET {
+            PJ_OPK  opk;
+            PJ_ENH  enh;
+            PJ_EZN  ezn;
+            PJ_DMS  dms;
+            double v[3];
+            XYZ    xyz;
+            LPZ    lpz;
+            UVW    uvw;
+            XY     xy;
+            LP     lp;
+            UV     uv;
+            PJ_AF  af;
+        } PJ_TRIPLET;
+
+    .. c:member:: PJ_OPK PJ_TRIPLET.opk
+
+    .. c:member:: PJ_ENH PJ_TRIPLET.enh
+
+    .. c:member:: PJ_EZN PJ_TRIPLET.ezn
+
+    .. c:member:: PJ_DMS PJ_TRIPLET.dsm
+
+    .. c:member:: double PJ_TRIPLET.v[3]
+
+    .. c:member:: XYZ PJ_TRIPLET.xyz
+
+    .. c:member:: LPZ PJ_TRIPLET.lpz
+
+    .. c:member:: UVW PJ_TRIPLET.uvw
+
+    .. c:member:: XY PJ_TRIPLET.xy
+
+    .. c:member:: LP PJ_TRIPLET.lp
+
+    .. c:member:: UV PJ_TRIPLET.uv
+
+    .. c:member:: PJ_AF PJ_TRIPLET.af
+
+Spatiotemporal coordinate types
+--------------------------------------------------------------------------------
+
+The following data types are extensions of the triplets above into the time
+domain.
+
+
+.. c:type:: PJ_LPZT
+
+    Spatiotemporal version of :c:type:`LPZ`.
+
+    .. code-block:: C
+
+        typedef struct {
+            double lam;
+            double phi;
+            double z;
+            double t;
+        }
+
+
+    .. c:member:: double PJ_LPZT.lam
+
+        Longitude.
+
+    .. c:member:: double PJ_LPZT.phi
+
+        Latitude
+
+    .. c:member:: double PJ_LPZT.z
+
+        Vertical component.
+
+    .. c:member:: double PJ_LPZT.t
+
+        Time component.
+
+.. c:type:: PJ_XYZT
+
+    Generic spatiotemporal coordinate. Usefull for e.g. cartesian coordinates with
+    an attached time-stamp.
+
+    .. code-block:: C
+
+        typedef struct {
+            double x;
+            double y;
+            double z;
+            double t;
+        } PJ_XYZT;
+
+
+    .. c:member:: double PJ_XYZT.x
+
+        Easting.
+
+    .. c:member:: double PJ_XYZT.y
+
+        Northing.
+
+    .. c:member:: double PJ_XYZT.z
+
+        Vertical component.
+
+    .. c:member:: double PJ_XYZT.t
+
+        Time component.
+
+
+.. c:type:: PJ_UVWT
+
+    Spatiotemporal version of :c:type:`PJ_UVW`.
+
+    .. code-block:: C
+
+        typedef struct {double u, v, w, t; } PJ_UVWT
+
+    .. c:member:: double PJ_UVWT.e
+
+        First horizontal component.
+
+    .. c:member:: double PJ_UVWT.n
+
+        Second horizontal component.
+
+    .. c:member:: double PJ_UVWT.w
+
+        Vertical component.
+
+    .. c:member:: double PJ_UVWT.t
+
+        Temporal component.
+
+
+
+.. c:type:: PJ_ENHT
+
+    Spatiotemporal version of :c:type:`PJ_ENH`.
+
+    .. code-block:: C
+
+        typedef struct {double e, n, h, t; } PJ_ENHT
+
+    .. c:member:: double PJ_ENHT.e
+
+        Easting
+
+    .. c:member:: double PJ_ENHT.n
+
+        Northing
+
+    .. c:member:: double PJ_ENHT.h
+
+        Height
+
+    .. c:member:: double PJ_ENHT.t
+
+
+.. c:type:: PJ_COORD
+
+    General purpose 4-dimensional union type.
+
+Ancillary types for geodetic computations
+--------------------------------------------------------------------------------
+
+
+.. c:type:: PJ_OPK
+
+    Rotations, for instance three euler angles.
+
+    .. code-block:: C
+
+        typedef struct { double o, p, k; } PJ_OPK
+
+    .. c:member:: double PJ_OPK.o
+
+        First rotation angle, omega.
+
+    .. c:member:: double PJ_OPK.p
+
+        Second rotation angle, phi.
+
+    .. c:member:: double PJ_OPK.k
+
+        Third rotation angle, kappa.
+
+
+.. c:type:: PJ_DMS
+
+    Describe a longitude or latitude by degrees, minutes and seconds.
+
+    .. code-block:: C
+
+        typedef struct { double d, m, s; } PJ_DMS
+
+    .. c:member:: double PJ_DMS.d
+
+        Degrees.
+
+    .. c:member:: double PJ_DMS.m
+
+        Minutes
+
+    .. c:member:: double PJ_DMS.s
+
+        Seconds.
+
+
+.. c:type:: PJ_EZN
+
+    Geoid undulation and deflections of the vertical.
+
+    .. code-block:: C
+
+        typedef struct { double e, z, N; } PJ_EZN
+
+    .. c:member:: double PJ_EZN.e
+
+        Deflection of the vertical, eta.
+
+    .. c:member:: double PJ_EZN.z
+
+        Deflection of the vertical, zeta
+
+    .. c:member:: double PJ_EZN.N
+
+        Geoid undulation.
+
+
+.. c:type:: PJ_AF
+
+    Ellipsoidal parameters.
+
+    .. code-block:: C
+
+        typedef struct {double a, f; } PJ_AF
+
+    .. c:member:: double PJ_AF.a
+
+        Major axis of ellipsoid.
+
+    .. c:member:: double PJ_AF.f
+
+        Flattening of ellipsoid.
+
+Projection derivatives
+-------------------------------------------------------------------------------
+
+
+Info structures
+-------------------------------------------------------------------------------
