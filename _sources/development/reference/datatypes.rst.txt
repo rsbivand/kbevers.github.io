@@ -174,51 +174,6 @@ generic, others are complex and made for a very specific purpose.
         Height
 
 
-.. c:type:: PJ_TRIPLET
-
-    Union type that groups all coordinate data types of two and tree dimensions.
-
-    .. code-block:: C
-
-        typedef union PJ_TRIPLET {
-            PJ_OPK  opk;
-            PJ_ENH  enh;
-            PJ_EZN  ezn;
-            PJ_DMS  dms;
-            double v[3];
-            XYZ    xyz;
-            LPZ    lpz;
-            UVW    uvw;
-            XY     xy;
-            LP     lp;
-            UV     uv;
-            PJ_AF  af;
-        } PJ_TRIPLET;
-
-    .. c:member:: PJ_OPK PJ_TRIPLET.opk
-
-    .. c:member:: PJ_ENH PJ_TRIPLET.enh
-
-    .. c:member:: PJ_EZN PJ_TRIPLET.ezn
-
-    .. c:member:: PJ_DMS PJ_TRIPLET.dsm
-
-    .. c:member:: double PJ_TRIPLET.v[3]
-
-    .. c:member:: XYZ PJ_TRIPLET.xyz
-
-    .. c:member:: LPZ PJ_TRIPLET.lpz
-
-    .. c:member:: UVW PJ_TRIPLET.uvw
-
-    .. c:member:: XY PJ_TRIPLET.xy
-
-    .. c:member:: LP PJ_TRIPLET.lp
-
-    .. c:member:: UV PJ_TRIPLET.uv
-
-    .. c:member:: PJ_AF PJ_TRIPLET.af
-
 Spatiotemporal coordinate types
 --------------------------------------------------------------------------------
 
@@ -336,11 +291,6 @@ domain.
 
     .. c:member:: double PJ_ENHT.t
 
-
-.. c:type:: PJ_COORD
-
-    General purpose 4-dimensional union type.
-
 Ancillary types for geodetic computations
 --------------------------------------------------------------------------------
 
@@ -424,8 +374,282 @@ Ancillary types for geodetic computations
 
         Flattening of ellipsoid.
 
+
+Complex coordinate types
+--------------------------------------------------------------------------------
+
+.. c:type:: PJ_PAIR
+
+    .. code-block:: C
+
+        union PJ_PAIR {
+            XY     xy;
+            LP     lp;
+            UV     uv;
+            PJ_AF  af;
+            PJ_EN  en;
+            double v[2];
+        }
+
+    .. c:member:: XY PJ_PAIR.xy
+
+        Coordinate in projected space.
+
+    .. c:member:: LP PJ_PAIR.lp
+
+        Coordinate in lat/long space.
+
+    .. c:member:: UV PJ_PAIR.uv
+
+        Coordinate either in lat/lon or projected space.
+
+    .. c:member:: PJ_AF PJ_PAIR.af;
+
+        Ellipsoidal parameters.
+
+    .. c:member:: PJ_EN PJ_PAIR.en
+
+        Easting/Northing pair.
+
+    .. c:member:: double PJ_PAIR.v[2]
+
+        Generic 2D-vector.
+
+.. c:type:: PJ_TRIPLET
+
+    Union type that groups all coordinate data types of two and tree dimensions.
+
+    .. code-block:: C
+
+        typedef union PJ_TRIPLET {
+            PJ_OPK  opk;
+            PJ_ENH  enh;
+            PJ_EZN  ezn;
+            PJ_DMS  dms;
+            double v[3];
+            XYZ    xyz;
+            LPZ    lpz;
+            UVW    uvw;
+            XY     xy;
+            LP     lp;
+            UV     uv;
+            PJ_AF  af;
+        } PJ_TRIPLET;
+
+    .. c:member:: PJ_OPK PJ_TRIPLET.opk
+
+    .. c:member:: PJ_ENH PJ_TRIPLET.enh
+
+    .. c:member:: PJ_EZN PJ_TRIPLET.ezn
+
+    .. c:member:: PJ_DMS PJ_TRIPLET.dsm
+
+    .. c:member:: double PJ_TRIPLET.v[3]
+
+    .. c:member:: XYZ PJ_TRIPLET.xyz
+
+    .. c:member:: LPZ PJ_TRIPLET.lpz
+
+    .. c:member:: UVW PJ_TRIPLET.uvw
+
+    .. c:member:: XY PJ_TRIPLET.xy
+
+    .. c:member:: LP PJ_TRIPLET.lp
+
+    .. c:member:: UV PJ_TRIPLET.uv
+
+    .. c:member:: PJ_AF PJ_TRIPLET.af
+
+
+.. c:type:: PJ_COORD
+
+    General purpose coordinate union type usefull in two, three and four dimensions.
+
+    .. code-block:: C
+
+        union PJ_COORD {
+            PJ_XYZT xyzt;
+            PJ_UVWT uvwt;
+            PJ_ENHT enht;
+            PJ_LPZT lpzt;
+            PJ_ENH  enh;
+            PJ_EN   en;
+            double v[4];
+            XYZ  xyz;
+            UVW  uvw;
+            LPZ  lpz;
+            XY   xy;
+            UV   uv;
+            LP   lp;
+        };
+
+    .. c:member:: PJ_XYZT PJ_COORD.xyzt
+
+    .. c:member:: PJ_UVWT PJ_COORD.uvwt
+
+    .. c:member:: PJ_ENHT PJ_COORD.enht
+
+    .. c:member:: PJ_LPZT PJ_COORD.lpzt
+
+    .. c:member:: PJ_ENH PJ_COORD.enh
+
+    .. c:member:: PJ_EN PJCOORD.en
+
+    .. c:member:: double v[4]
+
+        Generic four-dimensional vector.
+
+    .. c:member:: XYZ PJ_COORD.xyz
+
+    .. c:member:: UVW PJ_COORD.uvw
+
+    .. c:member:: LPZ PJ_COORD.lpz
+
+    .. c:member:: XY PJ_COORD.xy
+
+    .. c:member:: UV PJ_COORD.uv
+
+    .. c:member:: LP PJ_COORD.lp
+
+
+.. c:type:: PJ_OBS
+
+    Geodetic observation data type.
+
+    .. code-block:: C
+
+        struct PJ_OBS {
+            PJ_COORD coo;
+            PJ_TRIPLET anc;
+            int id;
+            unsigned int flags;
+        }
+
+    .. c:member:: PJ_COORD PJ_OBS.coo
+
+        Coordinate data
+
+    .. c:member:: PJ_TRIPLET PJ_OBS.anc
+
+        Ancillary data
+
+    .. c:member:: int PJ_OBS.id
+
+        Integer ancillary data, e.g. observation number, EPSG code, etc.
+
+    .. c:member:: unsigned int PJ_OBS.flags
+
+        Additional data intended for flags.
+
+
 Projection derivatives
 -------------------------------------------------------------------------------
+
+.. c:type:: PJ_DERIVS
+
+    Partial derivatives of geodetic coordinate :math:`\left(\lambda,\phi\right)`.
+    Calculated with :c:func:`proj_derivatives`.
+
+    .. code-block:: C
+
+        struct PJ_DERIVS {
+            double x_l, x_p;
+            double y_l, y_p;
+        };
+
+    .. c:member:: double PJ_DERIVS.x_l
+
+        :math:`\frac{\partial x}{\partial \lambda}`
+
+    .. c:member:: double PJ_DERIVS.x_p
+
+        :math:`\frac{\partial x}{\partial \phi}`
+
+    .. c:member:: double PJ_DERIVS.y_l
+
+        :math:`\frac{\partial y}{\partial \lambda}`
+
+    .. c:member:: double PJ_DERIVS.y_p
+
+        :math:`\frac{\partial y}{\partial \phi}`
+
+.. c:type:: PJ_FACTORS
+
+    Various cartographic properties, such as scale factors, angular distortion
+    and meridian convergence. Calculated with :c:func:`proj_factors`. Depending
+    on the underlying projection, values can be calculated either numerically
+    or analytically.
+
+    .. code-block:: C
+
+        struct PJ_FACTORS {
+            struct PJ_DERIVS der;
+            double h, k;
+            double omega, thetap;
+            double conv;
+            double s;
+            double a, b;
+            int code;
+        };
+
+    .. c:member:: PJ_DERIVS PJ_FACTORS.der
+
+    Partial derivatives of coordinate :math:`\left(\lambda,\phi\right)`.
+
+    .. c:member:: double PJ_FACTORS.h
+
+    Meridian scale at coordinate :math:`\left(\lambda,\phi\right)`.
+
+    .. c:member:: double PJ_FACTORS.k
+
+    Parallel scale at coordinate :math:`\left(\lambda,\phi\right)`.
+
+    .. c:member:: double PJ_FACTORS.omega
+
+    Angular distortion at coordinate :math:`\left(\lambda,\phi\right)`.
+
+    .. c:member:: double PJ_FACTORS.thetap
+
+     Meridian/parallel angle, :math:`\theta^\prime`, at coordinate :math:`\left(\lambda,\phi\right)`.
+
+     .. c:member:: double PJ_FACTORS.conv
+
+    Meridian convergence at coordinate :math:`\left(\lambda,\phi\right)`.
+    Sometimes also described as *grid declination*.
+
+    .. c:member:: double PJ_FACTORS.s
+
+    Areal scale factor at coordinate :math:`\left(\lambda,\phi\right)`.
+
+    .. c:member:: double PJ_FACTORS.a
+
+    Maximum scale error.
+
+    .. c:member:: double PJ_FACTORS.b
+
+    Minimum scale error.
+
+    .. c:member:: int code
+
+    Bitmask determing if calculation of various factors was done numerically
+    or analytically. If a bit flags is set the calculation was done analytically.
+    The following bit flags exists:
+
+        .. c:macro:: PJ_IS_ANAL_XL_YL
+
+            Longitude derivatives are calculated analytically
+
+        .. c:macro:: PJ_IS_ANAL_XP_YP
+
+            Latitude derivatives are calculated analyticall.
+
+        .. c:macro:: PJ_IS_ANAL_HK
+
+            Meridinal and parallel scale factors are calculated analytically.
+
+        .. c:macro:: PJ_IS_ANAL_CONV
+
+            Meridian convergence calculated analytically.
 
 
 Info structures
