@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -46,7 +44,6 @@
 
 <body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -87,10 +84,7 @@
           
             
             
-              
-            
-            
-              <ul class="current">
+                <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="usage/index.html">Using PROJ.4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projections/index.html">Projections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geodesic.html">Geodesic Calculations</a></li>
@@ -132,10 +126,8 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">PROJ.4</a>
-        
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PROJ.4</a>
       </nav>
 
 
@@ -144,38 +136,21 @@
         <div class="rst-content">
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>FAQ</li>
-    
-    
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>FAQ</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -213,17 +188,17 @@
 PROJ.4 page under documentation are the authoritative source but projections
 and options are spread over several documents in a form more related to their
 order of implementation than anything else.</p>
-<p>The ‘’‘proj’‘’ command itself can report the list of projections using the
-‘’‘-lp’‘’ option, the list of ellipsoids with the ‘’‘-le’‘’ option, the list of
-units with the ‘’‘-lu’‘’ option, and the list of built-in datums with the
-‘’‘-ld’‘’ option.</p>
+<p>The ”’proj”’ command itself can report the list of projections using the
+”’-lp”’ option, the list of ellipsoids with the ”’-le”’ option, the list of
+units with the ”’-lu”’ option, and the list of built-in datums with the
+”’-ld”’ option.</p>
 <p>The [<a class="reference external" href="http://www.remotesensing.org/geotiff/proj_list/">http://www.remotesensing.org/geotiff/proj_list/</a> GeoTIFF Projections Pages]
 include most of the common PROJ.4 projections, and a definition of the
 projection specific options for each.</p>
 <ul class="simple">
 <li>How do I do datum shifts between NAD27 and NAD83?</li>
 </ul>
-<p>While the ‘’‘nad2nad’‘’ program can be used in some cases, the ‘’‘cs2cs’‘’ is
+<p>While the ”’nad2nad”’ program can be used in some cases, the ”’cs2cs”’ is
 now the preferred mechanism.   The following example demonstrates using the
 default shift parameters for NAD27 to NAD83:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cs2cs</span> <span class="o">+</span><span class="n">proj</span><span class="o">=</span><span class="n">latlong</span> <span class="o">+</span><span class="n">datum</span><span class="o">=</span><span class="n">NAD27</span> <span class="o">+</span><span class="n">to</span> <span class="o">+</span><span class="n">proj</span><span class="o">=</span><span class="n">latlong</span> <span class="o">+</span><span class="n">datum</span><span class="o">=</span><span class="n">NAD83</span> <span class="o">-</span><span class="mi">117</span> <span class="mi">30</span>
@@ -413,7 +388,7 @@ transformations as a datum shift when no datum info is available.</li>
 <div class="section" id="what-is-the-healpix-projection-and-how-can-i-use-it">
 <h2>What is the HEALPix projection and how can I use it?<a class="headerlink" href="#what-is-the-healpix-projection-and-how-can-i-use-it" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-left">
-<a class="reference internal image-reference" href="_images/rhealpix.png"><img alt="_images/rhealpix.png" src="_images/rhealpix.png" style="width: 331.2px; height: 242.8px;" /></a>
+<a class="reference internal image-reference" href="_images/rhealpix.png"><img alt="_images/rhealpix.png" src="_images/rhealpix.png" style="width: 331.20000000000005px; height: 242.8px;" /></a>
 </div>
 <p>The HEALPix projection is area preserving and can be used with a
 spherical and ellipsoidal model.  It was initially developed for mapping cosmic
@@ -438,7 +413,7 @@ and equally spaced longitude with the module of the polar interruptions. ||</p>
 <div class="section" id="what-is-the-rhealpix-projection-and-how-can-i-use-it">
 <h2>What is the rHEALPix projection and how can I use it?<a class="headerlink" href="#what-is-the-rhealpix-projection-and-how-can-i-use-it" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-left">
-<a class="reference internal image-reference" href="_images/healpix.png"><img alt="_images/healpix.png" src="_images/healpix.png" style="width: 327.2px; height: 173.6px;" /></a>
+<a class="reference internal image-reference" href="_images/healpix.png"><img alt="_images/healpix.png" src="_images/healpix.png" style="width: 327.20000000000005px; height: 173.60000000000002px;" /></a>
 </div>
 <p>rHEALPix is a projection based on the HEALPix projection.  The implementation
 of rHEALPix uses the HEALPix projection.  The rHEALPix combines the peaks of
@@ -485,18 +460,15 @@ of using the symbolic “sphere” value.  Eg, if the radius were 2000000m:</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="development/bindings.html" class="btn btn-neutral" title="Language bindings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="development/bindings.html" class="btn btn-neutral" title="Language bindings" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -531,14 +503,13 @@ of using the symbolic “sphere” value.  Eg, if the radius were 2000000m:</p>
             VERSION:'4.9.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
