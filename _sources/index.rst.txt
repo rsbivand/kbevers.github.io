@@ -10,11 +10,6 @@ a C API for software developers to include coordinate transformation in their
 own software. PROJ.4 is maintained on `GitHub <http://github.com/OSGeo/proj.4/>`_.
 
 
-.. note::
-    This is a working copy of the documentation for the coming release of PROJ.4.
-    The website is evolving day by day. If you have any comments are suggestions
-    please join the discussion on https://github.com/OSGeo/proj.4/pull/563
-
 =============  ================================================================
  Platform                Test Status and Coverage
 =============  ================================================================

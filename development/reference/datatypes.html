@@ -182,8 +182,8 @@ consistenly used.</p>
 <dd><p>Object containing everything related to a given projection or transformation.
 As a user of the PROJ.4 library your are only exposed to pointers to this
 object and the contents are hidden in the public API. <a class="reference internal" href="#c.PJ" title="PJ"><code class="xref c c-type docutils literal"><span class="pre">PJ</span></code></a> objects
-are created with <code class="xref c c-func docutils literal"><span class="pre">proj_create()</span></code> and destroyed with
-<code class="xref c c-func docutils literal"><span class="pre">proj_destroy()</span></code>.</p>
+are created with <a class="reference internal" href="functions.html#c.proj_create" title="proj_create"><code class="xref c c-func docutils literal"><span class="pre">proj_create()</span></code></a> and destroyed with
+<a class="reference internal" href="functions.html#c.proj_destroy" title="proj_destroy"><code class="xref c c-func docutils literal"><span class="pre">proj_destroy()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="type">
@@ -192,8 +192,8 @@ are created with <code class="xref c c-func docutils literal"><span class="pre">
 <dd><p>Context objects enables safe multi-threaded usage of PROJ.4. Each <a class="reference internal" href="#c.PJ" title="PJ"><code class="xref c c-type docutils literal"><span class="pre">PJ</span></code></a>
 object is connected to a context (if not specified, the default context is
 used). All operations within a context should be performed in the same thread.
-<a class="reference internal" href="#c.PJ_CONTEXT" title="PJ_CONTEXT"><code class="xref c c-type docutils literal"><span class="pre">PJ_CONTEXT</span></code></a> objects are created with <code class="xref c c-func docutils literal"><span class="pre">proj_context_create()</span></code>
-and destroyed with <code class="xref c c-func docutils literal"><span class="pre">proj_context_destroy()</span></code>.</p>
+<a class="reference internal" href="#c.PJ_CONTEXT" title="PJ_CONTEXT"><code class="xref c c-type docutils literal"><span class="pre">PJ_CONTEXT</span></code></a> objects are created with <a class="reference internal" href="functions.html#c.proj_context_create" title="proj_context_create"><code class="xref c c-func docutils literal"><span class="pre">proj_context_create()</span></code></a>
+and destroyed with <a class="reference internal" href="functions.html#c.proj_context_destroy" title="proj_context_destroy"><code class="xref c c-func docutils literal"><span class="pre">proj_context_destroy()</span></code></a>.</p>
 </dd></dl>
 
 </div>
@@ -945,7 +945,7 @@ unsigned int <code class="descname">PJ_OBS.flags</code><a class="headerlink" hre
 <dt id="c.PJ_DERIVS">
 <code class="descname">PJ_DERIVS</code><a class="headerlink" href="#c.PJ_DERIVS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Partial derivatives of geodetic coordinate <span class="math">\(\left(\lambda,\phi\right)\)</span>.
-Calculated with <code class="xref c c-func docutils literal"><span class="pre">proj_derivatives()</span></code>.</p>
+Calculated with <a class="reference internal" href="functions.html#c.proj_derivatives" title="proj_derivatives"><code class="xref c c-func docutils literal"><span class="pre">proj_derivatives()</span></code></a>.</p>
 <div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="kt">double</span> <span class="n">x_l</span><span class="p">,</span> <span class="n">x_p</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">y_l</span><span class="p">,</span> <span class="n">y_p</span><span class="p">;</span>
@@ -982,7 +982,7 @@ double <code class="descname">PJ_DERIVS.y_p</code><a class="headerlink" href="#c
 <dt id="c.PJ_FACTORS">
 <code class="descname">PJ_FACTORS</code><a class="headerlink" href="#c.PJ_FACTORS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Various cartographic properties, such as scale factors, angular distortion
-and meridian convergence. Calculated with <code class="xref c c-func docutils literal"><span class="pre">proj_factors()</span></code>. Depending
+and meridian convergence. Calculated with <a class="reference internal" href="functions.html#c.proj_factors" title="proj_factors"><code class="xref c c-func docutils literal"><span class="pre">proj_factors()</span></code></a>. Depending
 on the underlying projection, values can be calculated either numerically
 or analytically.</p>
 <div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
@@ -1093,7 +1093,7 @@ The following bit flags exists:</p>
 <dt id="c.PJ_INFO">
 <code class="descname">PJ_INFO</code><a class="headerlink" href="#c.PJ_INFO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Struct holding information about the current instance of PROJ.4. Struct is
-populated by <code class="xref c c-func docutils literal"><span class="pre">proj_info()</span></code>.</p>
+populated by <a class="reference internal" href="functions.html#c.proj_info" title="proj_info"><code class="xref c c-func docutils literal"><span class="pre">proj_info()</span></code></a>.</p>
 <div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="kt">char</span>        <span class="n">release</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
     <span class="kt">char</span>        <span class="n">version</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
@@ -1150,7 +1150,7 @@ Grids and init files are looked for in directories in the search path.</p>
 <dt id="c.PJ_PROJ_INFO">
 <code class="descname">PJ_PROJ_INFO</code><a class="headerlink" href="#c.PJ_PROJ_INFO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Struct holding information about a <a class="reference internal" href="#c.PJ" title="PJ"><code class="xref c c-type docutils literal"><span class="pre">PJ</span></code></a> object. Populated by
-<code class="xref c c-func docutils literal"><span class="pre">proj_pj_info()</span></code>.</p>
+<a class="reference internal" href="functions.html#c.proj_pj_info" title="proj_pj_info"><code class="xref c c-func docutils literal"><span class="pre">proj_pj_info()</span></code></a>.</p>
 <div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="kt">char</span>        <span class="n">id</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
     <span class="kt">char</span>        <span class="n">description</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span>
@@ -1192,7 +1192,7 @@ int <code class="descname">PJ_PROJ_INFO.has_inverse</code><a class="headerlink" 
 <dt id="c.PJ_GRID_INFO">
 <code class="descname">PJ_GRID_INFO</code><a class="headerlink" href="#c.PJ_GRID_INFO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Struct holding information about a specific grid in the search path of
-PROJ.4. Populated with the function <code class="xref c c-func docutils literal"><span class="pre">proj_grid_info()</span></code>.</p>
+PROJ.4. Populated with the function <a class="reference internal" href="functions.html#c.proj_grid_info" title="proj_grid_info"><code class="xref c c-func docutils literal"><span class="pre">proj_grid_info()</span></code></a>.</p>
 <div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="kt">char</span>        <span class="n">gridname</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
     <span class="kt">char</span>        <span class="n">filename</span><span class="p">[</span><span class="mi">260</span><span class="p">];</span>
@@ -1264,7 +1264,7 @@ double <code class="descname">PJ_GRID_INFO.cs_lat</code><a class="headerlink" hr
 <dt id="c.PJ_INIT_INFO">
 <code class="descname">PJ_INIT_INFO</code><a class="headerlink" href="#c.PJ_INIT_INFO" title="Permalink to this definition">¶</a></dt>
 <dd><p>Struct holding information about a specific init file in the search path of
-PROJ.4. Populated with the function <code class="xref c c-func docutils literal"><span class="pre">proj_init_info()</span></code>.</p>
+PROJ.4. Populated with the function <a class="reference internal" href="functions.html#c.proj_init_info" title="proj_init_info"><code class="xref c c-func docutils literal"><span class="pre">proj_init_info()</span></code></a>.</p>
 <div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="kt">char</span>        <span class="n">name</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
     <span class="kt">char</span>        <span class="n">filename</span><span class="p">[</span><span class="mi">260</span><span class="p">];</span>
@@ -1329,7 +1329,7 @@ char <code class="descname">PJ_INIT_INFO.lastupdate</code><a class="headerlink" 
   <div role="contentinfo">
     <p>
         &copy; Copyright 1986?-2016.
-      Last updated on 06 Sep 2017.
+      Last updated on 13 Sep 2017.
 
     </p>
   </div>
