@@ -913,7 +913,7 @@ Info structures
             char        description[128];
             char        definition[512];
             int         has_inverse;
-        } PJ_PROJ_INFO;
+        } PJ_PROJ_INFO
 
     .. c:member:: char PJ_PROJ_INFO.id[16]
 

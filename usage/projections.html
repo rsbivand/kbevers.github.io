@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -45,6 +47,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -85,7 +88,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Using PROJ.4</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quick start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps/index.html">Applications</a></li>
@@ -125,8 +131,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">PROJ.4</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PROJ.4</a>
+        
       </nav>
 
 
@@ -135,23 +143,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="index.html">Using PROJ.4</a> &raquo;</li>
-      
-    <li>Cartographic projection</li>
+        
+      <li>Cartographic projection</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -160,13 +185,13 @@
   <div class="section" id="cartographic-projection">
 <span id="projections-intro"></span><h1>Cartographic projection<a class="headerlink" href="#cartographic-projection" title="Permalink to this headline">¶</a></h1>
 <p>The foundation of PROJ.4 is the large number of
-<span class="xref std std-doc">projections</span> available in the library. This section
+<a class="reference internal" href="operations/projections/index.html"><span class="doc">projections</span></a> available in the library. This section
 is devoted to the generic parameters that can be used on any projection in the
 PROJ.4 library.</p>
 <p>Below is a list of PROJ.4 parameters which can be applied to most coordinate
 system definitions. This table does not attempt to describe the parameters
 particular to particular projection types. These can be found on the pages
-documenting the individual <span class="xref std std-doc">projections</span>.</p>
+documenting the individual <a class="reference internal" href="operations/projections/index.html"><span class="doc">projections</span></a>.</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -271,8 +296,9 @@ systems (such as UTM) have implicit false easting and northing values.</p>
 <p>By default PROJ.4 wraps output longitudes in the range -180 to 180.  The <code class="docutils literal"><span class="pre">+over</span></code>
 switch can be used to disable the default wrapping which is done at a low level
 in <code class="docutils literal"><span class="pre">pj_inv()</span></code>.  This is particularly useful with projections like the
-<span class="xref std std-doc">equidistant cylindrical</span> where it would be desirable for
-X values past -20000000 (roughly) to continue past -180 instead of wrapping to +180.</p>
+<a class="reference internal" href="operations/projections/eqc.html"><span class="doc">equidistant cylindrical</span></a>
+where it would be desirable for X values past -20000000 (roughly) to continue
+past -180 instead of wrapping to +180.</p>
 <p>The <code class="docutils literal"><span class="pre">+lon_wrap</span></code> option can be used to provide an alternative means of doing
 longitude wrapping within <code class="docutils literal"><span class="pre">pj_transform()</span></code>.  The argument to this option is a
 center longitude.  So <code class="docutils literal"><span class="pre">+lon_wrap=180</span></code> means wrap longitudes in the range 0 to
@@ -385,15 +411,18 @@ utility.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="transformation.html" class="btn btn-neutral float-right" title="Geodetic transformation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="transformation.html" class="btn btn-neutral float-right" title="Geodetic transformation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="apps/geod.html" class="btn btn-neutral" title="geod" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="apps/geod.html" class="btn btn-neutral" title="geod" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -403,7 +432,7 @@ utility.</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 1986?-2016.
-      Last updated on 09 Oct 2017.
+      Last updated on 15 Nov 2017.
 
     </p>
   </div>
@@ -428,13 +457,14 @@ utility.</p>
             VERSION:'4.9.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
