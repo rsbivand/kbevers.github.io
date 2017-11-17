@@ -71,7 +71,7 @@ actual nature of the object, instead of hiding it away behind a typedef. New dat
 types for handling coordinates have also been introduced. In the above example we
 use the ``PJ_COORD``, which is a union of various types. The benefit of this is that
 it is possible to use the various structs in the union to communicate what state
-the data is in at different points in the program. For instance as in the above
+the data is in at different points in the program. The `PJ_FWD` macro is defined in `proj.h`, and can also take values `PJ_IDENT` and `PJ_INV`. For instance as in the above
 example where the coordinate is read from STDIN as a geodetic coordinate,
 communicated to the reader of the code by using the ``c.lp`` struct.
 After it has been projected we print it to STDOUT by accessing the individual
@@ -90,7 +90,7 @@ geodetic coordinates as its input, the description of the source in this case
 is superflous. We use that to our advantage in the new API and simply state
 the destination. This is simple at a glance, but is actually a big conceptual
 change. We are now focused on the path between two systems instead of what the
-source and destination systems are.
+source and destination systems are. This is documented more fully [here](https://kbevers.github.io/development/index.html) and in this [paper](http://www.fig.net/resources/proceedings/fig_proceedings/fig2017/papers/iss6b/ISS6B_evers_knudsen_9156.pdf)
 
 
 Function mapping from old to new API
